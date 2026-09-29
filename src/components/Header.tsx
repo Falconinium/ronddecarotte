@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { annualClosure, bookingHref, external, hours, info } from "@/lib/content";
 import { ease } from "./Reveal";
+import { setScrollLocked } from "./SmoothScroll";
 
 const links = [
   { href: "#maison", label: "La maison" },
@@ -18,10 +19,14 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    setScrollLocked(open);
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      setScrollLocked(false);
+    };
   }, [open]);
 
   return (
@@ -87,7 +92,8 @@ export default function Header() {
             />
             <motion.nav
               id="menu-panel"
-              className="fixed inset-x-3 top-3 z-40 flex max-h-[calc(100svh-1.5rem)] flex-col overflow-y-auto rounded-[18px] bg-cream px-6 pt-24 pb-8 shadow-2xl shadow-olive/10 lg:right-[calc(50%+0.75rem)]"
+              data-lenis-prevent
+              className="fixed inset-x-3 top-3 z-40 flex max-h-[calc(100svh-1.5rem)] flex-col overflow-y-auto overscroll-contain rounded-[18px] bg-cream px-6 pt-24 pb-8 shadow-2xl shadow-olive/10 lg:right-[calc(50%+0.75rem)]"
               initial={{ clipPath: "inset(0 0 100% 0 round 18px)" }}
               animate={{ clipPath: "inset(0 0 0% 0 round 18px)" }}
               exit={{ clipPath: "inset(0 0 100% 0 round 18px)" }}
