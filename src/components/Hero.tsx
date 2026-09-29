@@ -16,12 +16,12 @@ export default function Hero() {
     <section
       id="top"
       data-panel="hero"
-      className="flex min-h-svh flex-col justify-end gap-8 pt-20 pb-10 lg:gap-10 lg:pt-28 lg:pb-16"
+      className="flex min-h-svh flex-col justify-end gap-8 pt-20 pb-10 lg:gap-8 lg:pt-24 lg:pb-8"
     >
       <InlinePhoto panel="hero" className="aspect-[16/10]!" />
 
       <div>
-        <motion.p {...fade(0.1)} className="mb-6 text-xs tracking-[0.25em] text-clay uppercase">
+        <motion.p {...fade(0.1)} className="mb-5 text-xs tracking-[0.25em] text-clay uppercase">
           {info.tagline}
         </motion.p>
         <h1 className="font-serif text-[clamp(4.5rem,10vw,10rem)] leading-[0.9] tracking-tight">
@@ -38,11 +38,12 @@ export default function Hero() {
             </span>
           ))}
         </h1>
-        <motion.p {...fade(0.55)} className="mt-8 max-w-md text-lg leading-relaxed text-bark">
-          Un restaurant de saison au cœur de Saint-Gervais : une cuisine qui suit le marché et les
-          producteurs de la vallée, et une cave de plus de 500 vins.
+        <motion.p {...fade(0.55)} className="mt-6 max-w-md text-lg leading-relaxed text-bark">
+          Un lieu, mille découvertes. Dans une ambiance conviviale et chaleureuse, chaque moment de la
+          journée se savoure différemment : un café le matin, une cuisine de saison à midi, un verre de
+          vin nature pour finir.
         </motion.p>
-        <motion.div {...fade(0.7)} className="mt-10 flex flex-wrap gap-3">
+        <motion.div {...fade(0.7)} className="mt-8 flex flex-wrap gap-3">
           <a
             href={bookingHref}
             {...external(bookingHref)}
@@ -88,6 +89,7 @@ export default function Hero() {
           <li key={h.day}>
             <span className="block text-bark/60">{h.short}</span>
             <span className={h.closed ? "text-bark/50" : ""}>{h.hours}</span>
+            {h.note && <span className="block text-clay">{h.note}</span>}
           </li>
         ))}
       </motion.ul>

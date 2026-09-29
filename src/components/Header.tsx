@@ -131,7 +131,10 @@ export default function Header() {
                     {hours.map((h) => (
                       <li key={h.day} className="flex justify-between gap-4">
                         <span>{h.day}</span>
-                        <span className={h.closed ? "text-bark/50" : "text-olive"}>{h.hours}</span>
+                        <span className={`text-right ${h.closed ? "text-bark/50" : "text-olive"}`}>
+                          {h.hours}
+                          {h.note && <span className="block text-xs text-clay">{h.note}</span>}
+                        </span>
                       </li>
                     ))}
                   </ul>

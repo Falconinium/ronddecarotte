@@ -36,8 +36,9 @@ export default function Home() {
           <SplitTitle lines={["Restaurant", "& cave à vin"]} className={`${title} mt-5`} />
           <Reveal delay={0.2} className="mt-8 max-w-lg space-y-5 text-lg leading-relaxed text-bark">
             <p>
-              Au cœur de Saint-Gervais, une salle aux allures de chalet coupée en deux par une petite
-              cuisine ouverte, et des étagères chargées de bouteilles.
+              Poutres anciennes, tables en bois et murs couverts de bouteilles : au cœur de
+              Saint-Gervais, on s&apos;installe ici comme chez des amis, entre la cuisine ouverte et la
+              cave.
             </p>
             <p>
               On y vient pour un brunch qui s&apos;étire, un déjeuner de saison, un café l&apos;après-midi
@@ -165,8 +166,8 @@ export default function Home() {
           <SplitTitle lines={["Réserver", "une table"]} className={`${title} mt-5`} />
           <Reveal delay={0.15} className="mt-8 max-w-lg text-lg leading-relaxed text-bark">
             <p>
-              Brunch et déjeuner du jeudi au lundi, dîner le vendredi et le samedi soir. Le restaurant
-              est fermé le mardi et le mercredi.
+              Brunch et déjeuner le lundi, jeudi, vendredi et samedi, dîner le vendredi et le samedi
+              soir, brunch uniquement le dimanche. Le restaurant est fermé le mardi et le mercredi.
             </p>
           </Reveal>
           <Reveal delay={0.25} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
@@ -192,7 +193,10 @@ export default function Home() {
                 {hours.map((h) => (
                   <li key={h.day} className="flex justify-between gap-4">
                     <span className="text-bark">{h.day}</span>
-                    <span className={h.closed ? "text-bark/50" : ""}>{h.hours}</span>
+                    <span className={`text-right ${h.closed ? "text-bark/50" : ""}`}>
+                      {h.hours}
+                      {h.note && <span className="block text-xs text-clay">{h.note}</span>}
+                    </span>
                   </li>
                 ))}
               </ul>

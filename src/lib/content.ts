@@ -14,7 +14,7 @@ export const info = {
     "https://www.google.com/maps/search/?api=1&query=Rond+de+Carotte+50+rue+de+la+Vignette+Saint-Gervais-les-Bains",
 };
 
-export type Day = { day: string; short: string; hours: string; closed?: boolean };
+export type Day = { day: string; short: string; hours: string; note?: string; closed?: boolean };
 
 export const hours: Day[] = [
   { day: "Lundi", short: "Lun.", hours: "9h – 18h" },
@@ -23,7 +23,7 @@ export const hours: Day[] = [
   { day: "Jeudi", short: "Jeu.", hours: "9h – 18h" },
   { day: "Vendredi", short: "Ven.", hours: "9h – 22h30" },
   { day: "Samedi", short: "Sam.", hours: "9h – 22h30" },
-  { day: "Dimanche", short: "Dim.", hours: "9h – 18h" },
+  { day: "Dimanche", short: "Dim.", hours: "9h – 18h", note: "Brunch uniquement" },
 ];
 
 export const services = [
@@ -47,7 +47,7 @@ export type Carte = { id: string; label: string; when: string; pdf: string };
 export const cartes: Carte[] = [
   { id: "dejeuner-diner", label: "Déjeuner & Dîner", when: "Midi · Vendredi & samedi soir", pdf: "" },
   { id: "vins", label: "Vins", when: "Plus de 500 références", pdf: "" },
-  { id: "brunch", label: "Brunch", when: "9h – 14h", pdf: "" },
+  { id: "brunch", label: "Brunch", when: "9h – 14h · Le dimanche, brunch uniquement", pdf: "" },
   { id: "apres-midi", label: "Carte de l'après-midi", when: "À partir de 14h", pdf: "" },
 ];
 
