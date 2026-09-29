@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { bookingHref, external, info } from "@/lib/content";
+import { bookingHref, external, hours, info } from "@/lib/content";
 import { InlinePhoto } from "./ImagePanel";
 import { ease } from "./Reveal";
 
@@ -16,7 +16,7 @@ export default function Hero() {
     <section
       id="top"
       data-panel="hero"
-      className="flex min-h-svh flex-col justify-end gap-8 pt-20 pb-14 lg:gap-10 lg:pt-28 lg:pb-28"
+      className="flex min-h-svh flex-col justify-end gap-8 pt-20 pb-10 lg:gap-10 lg:pt-28 lg:pb-16"
     >
       <InlinePhoto panel="hero" className="aspect-[16/10]!" />
 
@@ -78,6 +78,19 @@ export default function Hero() {
           </div>
         ))}
       </motion.dl>
+
+      <motion.ul
+        {...fade(0.95)}
+        className="-mt-2 grid grid-cols-4 gap-x-4 gap-y-3 border-t border-olive/10 pt-5 text-xs sm:grid-cols-7 lg:-mt-4"
+        aria-label="Horaires d'ouverture"
+      >
+        {hours.map((h) => (
+          <li key={h.day}>
+            <span className="block text-bark/60">{h.short}</span>
+            <span className={h.closed ? "text-bark/50" : ""}>{h.hours}</span>
+          </li>
+        ))}
+      </motion.ul>
     </section>
   );
 }

@@ -11,7 +11,6 @@ import {
   external,
   hours,
   info,
-  reservationUrl,
   services,
 } from "@/lib/content";
 
@@ -30,7 +29,7 @@ export default function Home() {
         <Hero />
 
         {/* La maison */}
-        <section id="maison" data-panel="maison" className="py-24 lg:py-40">
+        <section id="maison" data-panel="maison" className="py-10 lg:py-14">
           <Reveal>
             <p className={eyebrow}>La maison</p>
           </Reveal>
@@ -45,15 +44,11 @@ export default function Home() {
               ou une bonne bouteille le vendredi soir.
             </p>
           </Reveal>
-          <Reveal delay={0.3} className="mt-10 inline-flex items-center gap-3 rounded-full border border-olive/15 px-5 py-2.5 text-sm">
-            <span className="size-2 rounded-full bg-carrot" aria-hidden />
-            Sélectionné par le Guide MICHELIN
-          </Reveal>
           <InlinePhoto panel="maison" className="mt-12" />
         </section>
 
         {/* La carte */}
-        <section id="carte" data-panel="carte" className="py-24 lg:py-40">
+        <section id="carte" data-panel="carte" className="py-10 lg:py-14">
           <Reveal>
             <p className={eyebrow}>À table</p>
           </Reveal>
@@ -100,15 +95,15 @@ export default function Home() {
         </section>
 
         {/* Coffee shop */}
-        <section id="coffee" data-panel="coffee" className="py-24 lg:py-40">
+        <section id="coffee" data-panel="coffee" className="py-10 lg:py-14">
           <Reveal>
-            <p className={eyebrow}>L&apos;après-midi · 14h – 19h</p>
+            <p className={eyebrow}>Toute la journée · 9h – 18h</p>
           </Reveal>
           <SplitTitle lines={["Coffee shop"]} className={`${title} mt-5`} />
           <Reveal delay={0.2} className="mt-8 max-w-lg text-lg leading-relaxed text-bark">
             <p>
-              Entre deux services, la maison reste ouverte : cafés de spécialité, pâtisseries maison et
-              une carte réduite, sur place ou à emporter.
+              De 9h à 18h, la maison fait aussi coffee shop : cafés de spécialité, pâtisseries maison et,
+              l&apos;après-midi, une carte réduite, sur place ou à emporter.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -125,22 +120,22 @@ export default function Home() {
         </section>
 
         {/* Cave à vin */}
-        <section id="cave" data-panel="cave" className="py-24 lg:py-40">
+        <section id="cave" data-panel="cave" className="py-10 lg:py-14">
           <Reveal>
             <p className={eyebrow}>Cave à vin</p>
           </Reveal>
           <SplitTitle lines={["500 vins,", "à boire ici", "ou à emporter"]} className={`${title} mt-5`} />
           <Reveal delay={0.2} className="mt-8 max-w-lg text-lg leading-relaxed text-bark">
             <p>
-              Des vignerons de Savoie, du Jura et d&apos;ailleurs, souvent en bio ou en nature. Choisissez
-              une bouteille sur les étagères pour l&apos;ouvrir à table, ou repartez avec.
+              Des vins naturels de vignerons de toute la France. La sélection évolue au fil des arrivages
+              et des coups de cœur : demandez-nous conseil, on adore en parler.
             </p>
           </Reveal>
           <Reveal delay={0.3} className="mt-10 grid max-w-lg grid-cols-3 gap-4">
             {[
               { n: "500+", l: "références" },
-              { n: "Savoie", l: "& vignerons voisins" },
-              { n: "Cave", l: "vente à emporter" },
+              { n: "France", l: "vignerons de toute la France" },
+              { n: "Nature", l: "vins vivants" },
             ].map((s) => (
               <div key={s.n} className="rounded-[18px] bg-sand p-4">
                 <p className="font-serif text-3xl">{s.n}</p>
@@ -148,19 +143,30 @@ export default function Home() {
               </div>
             ))}
           </Reveal>
+          <Reveal delay={0.35}>
+            <a
+              href={info.raisinHref}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex items-center gap-3 rounded-full border border-olive/15 px-5 py-2.5 text-sm transition-colors hover:border-olive"
+            >
+              <span className="size-2 rounded-full bg-carrot" aria-hidden />
+              Référencé sur Raisin, l&apos;appli des vins naturels ↗
+            </a>
+          </Reveal>
           <InlinePhoto panel="cave" className="mt-12" />
         </section>
 
         {/* Réservation & infos */}
-        <section id="reservation" data-panel="reservation" className="py-24 lg:py-40">
+        <section id="reservation" data-panel="reservation" className="py-10 lg:py-14">
           <Reveal>
             <p className={eyebrow}>Réservation</p>
           </Reveal>
           <SplitTitle lines={["Réserver", "une table"]} className={`${title} mt-5`} />
           <Reveal delay={0.15} className="mt-8 max-w-lg text-lg leading-relaxed text-bark">
             <p>
-              Déjeuner en semaine, dîner le vendredi et le samedi soir. Réservez en quelques clics, ou
-              appelez-nous directement.
+              Brunch et déjeuner du jeudi au lundi, dîner le vendredi et le samedi soir. Le restaurant
+              est fermé le mardi et le mercredi.
             </p>
           </Reveal>
           <Reveal delay={0.25} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
@@ -169,7 +175,7 @@ export default function Home() {
               {...external(bookingHref)}
               className="group inline-flex items-center gap-3 rounded-full bg-olive py-4 pr-4 pl-8 text-lg text-cream transition-colors hover:bg-clay"
             >
-              {reservationUrl ? "Réserver en ligne" : "Réserver par téléphone"}
+              Réserver une table
               <span className="flex size-9 items-center justify-center rounded-full bg-cream/15 transition-transform duration-500 group-hover:rotate-45">
                 ↗
               </span>
@@ -179,7 +185,7 @@ export default function Home() {
             </a>
           </Reveal>
 
-          <div id="infos" className="mt-20 grid gap-12 sm:grid-cols-2">
+          <div id="infos" className="mt-14 grid gap-12 sm:grid-cols-2">
             <Reveal>
               <h3 className="font-serif text-3xl">Horaires</h3>
               <ul className="mt-5 space-y-2 text-sm">

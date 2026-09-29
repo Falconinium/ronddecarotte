@@ -9,25 +9,26 @@ export const info = {
   phoneHref: "tel:+33450477639",
   instagram: "@ronddecarotte_stgervais",
   instagramHref: "https://www.instagram.com/ronddecarotte_stgervais/",
+  raisinHref: "https://www.raisin.digital/fr/rond-de-carotte-1119/",
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=Rond+de+Carotte+50+rue+de+la+Vignette+Saint-Gervais-les-Bains",
 };
 
-export type Day = { day: string; hours: string; closed?: boolean };
+export type Day = { day: string; short: string; hours: string; closed?: boolean };
 
 export const hours: Day[] = [
-  { day: "Lundi", hours: "9h – 19h" },
-  { day: "Mardi", hours: "Fermé", closed: true },
-  { day: "Mercredi", hours: "Fermé", closed: true },
-  { day: "Jeudi", hours: "9h – 19h" },
-  { day: "Vendredi", hours: "9h – 22h30" },
-  { day: "Samedi", hours: "9h – 22h30" },
-  { day: "Dimanche", hours: "9h – 18h" },
+  { day: "Lundi", short: "Lun.", hours: "9h – 18h" },
+  { day: "Mardi", short: "Mar.", hours: "Fermé", closed: true },
+  { day: "Mercredi", short: "Mer.", hours: "Fermé", closed: true },
+  { day: "Jeudi", short: "Jeu.", hours: "9h – 18h" },
+  { day: "Vendredi", short: "Ven.", hours: "9h – 22h30" },
+  { day: "Samedi", short: "Sam.", hours: "9h – 22h30" },
+  { day: "Dimanche", short: "Dim.", hours: "9h – 18h" },
 ];
 
 export const services = [
   { label: "Brunch & déjeuner", time: "9h – 14h" },
-  { label: "Coffee shop", time: "14h – 19h" },
+  { label: "Coffee shop", time: "9h – 18h" },
   { label: "Dîner", time: "Ven. & sam. soir" },
 ];
 
@@ -47,6 +48,7 @@ export const cartes: Carte[] = [
   { id: "dejeuner-diner", label: "Déjeuner & Dîner", when: "Midi · Vendredi & samedi soir", pdf: "" },
   { id: "vins", label: "Vins", when: "Plus de 500 références", pdf: "" },
   { id: "brunch", label: "Brunch", when: "9h – 14h", pdf: "" },
+  { id: "apres-midi", label: "Carte de l'après-midi", when: "À partir de 14h", pdf: "" },
 ];
 
 export type MenuItem = { name: string };
@@ -56,5 +58,4 @@ export const coffeeMenu: MenuItem[] = [
   { name: "Latte, flat white, chaï" },
   { name: "Chocolat chaud & thés" },
   { name: "Pâtisseries maison" },
-  { name: "Un verre de vin, une planche" },
 ];

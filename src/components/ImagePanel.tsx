@@ -9,7 +9,7 @@ export const panels = {
   hero: { src: "/images/poulpe.jpg", caption: "Poulpe grillé, roquette" },
   maison: { src: "/images/carpaccio.jpg", caption: "Cuisine de saison" },
   carte: { src: "/images/risotto-girolles.jpg", caption: "Risotto crémeux aux girolles" },
-  coffee: { src: "/images/coffee.jpg", caption: "L'après-midi, le coffee shop" },
+  coffee: { src: "/images/coffee.jpg", caption: "Le coffee shop" },
   cave: { src: "/images/cave-a-vin.jpg", caption: "Plus de 500 références" },
   reservation: { src: "/images/poisson-du-lac.jpg", caption: "À très vite à table" },
 } as const;

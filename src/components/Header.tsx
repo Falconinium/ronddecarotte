@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { bookingHref, external, hours, info, reservationUrl } from "@/lib/content";
+import { bookingHref, external, hours, info } from "@/lib/content";
 import { ease } from "./Reveal";
 
 const links = [
@@ -143,7 +143,7 @@ export default function Header() {
                 {...external(bookingHref)}
                 className="mt-10 rounded-full bg-olive px-6 py-4 text-center text-cream transition-colors hover:bg-clay"
               >
-                {reservationUrl ? "Réserver une table" : `Réserver au ${info.phone}`}
+                Réserver une table
               </a>
             </motion.nav>
           </>
