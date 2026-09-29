@@ -12,6 +12,7 @@ import {
   external,
   hours,
   info,
+  annualClosure,
   services,
 } from "@/lib/content";
 
@@ -42,7 +43,7 @@ export default function Home() {
             </p>
             <p>
               On y vient pour un brunch qui s&apos;étire, un déjeuner de saison, un café l&apos;après-midi
-              ou une bonne bouteille le vendredi soir.
+              ou une bonne bouteille.
             </p>
           </Reveal>
           <InlinePhoto panel="maison" className="mt-12" />
@@ -174,6 +175,7 @@ export default function Home() {
                 { k: "Brunch uniquement", v: "Dimanche · 9h – 14h" },
                 { k: "Dîner", v: "Vendredi & samedi soir" },
                 { k: "Fermé", v: "Mardi & mercredi" },
+                { k: "Fermeture annuelle", v: "Du 18 octobre au 11 novembre inclus" },
               ].map((r) => (
                 <div key={r.k} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:justify-between sm:gap-6">
                   <dt className="font-medium">{r.k}</dt>
@@ -220,7 +222,8 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-xs text-bark/60">Horaires susceptibles de varier selon la saison.</p>
+              <p className="mt-4 text-xs text-clay">{annualClosure}.</p>
+              <p className="mt-1 text-xs text-bark/60">Horaires susceptibles de varier selon la saison.</p>
             </Reveal>
             <Reveal delay={0.1}>
               <h3 className="font-serif text-3xl">Nous trouver</h3>

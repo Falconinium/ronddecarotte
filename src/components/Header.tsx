@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { bookingHref, external, hours, info } from "@/lib/content";
+import { annualClosure, bookingHref, external, hours, info } from "@/lib/content";
 import { ease } from "./Reveal";
 
 const links = [
@@ -146,6 +146,7 @@ export default function Header() {
                       </li>
                     ))}
                   </ul>
+                  <p className="mt-3 text-xs text-clay">{annualClosure}.</p>
                 </div>
               </motion.div>
 

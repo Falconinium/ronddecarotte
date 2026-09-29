@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { bookingHref, external, hours, info } from "@/lib/content";
+import { annualClosure, bookingHref, external, hours, info } from "@/lib/content";
 import { InlinePhoto } from "./ImagePanel";
 import { ease } from "./Reveal";
 
@@ -93,6 +93,9 @@ export default function Hero() {
           </li>
         ))}
       </motion.ul>
+      <motion.p {...fade(1)} className="-mt-4 text-xs text-clay lg:-mt-5">
+        {annualClosure}.
+      </motion.p>
     </section>
   );
 }

@@ -15,7 +15,8 @@ npm run dev
 
 Tout est dans [`src/lib/content.ts`](src/lib/content.ts) : horaires, coordonnées, et surtout :
 
-- `reservationUrl` : lien CoverManager. Tant qu'il est vide, les boutons « Réserver » appellent le restaurant.
+- `reservationUrl` : lien CoverManager utilisé par tous les boutons « Réserver ».
+- `annualClosure` : période de fermeture annuelle, affichée avec les horaires.
 - `cartes` : un lien `pdf` par carte (Déjeuner & Dîner, Vins, Brunch, Carte de l'après-midi), actuellement sur Google Drive. URL externe, ou fichier déposé dans `public/cartes/` puis référencé en `/cartes/nom.pdf`. Tant qu'il est vide, la carte affiche « Bientôt en ligne ».
 
 Photos : `public/images/`. Le choix de la photo par section est fait dans [`src/components/ImagePanel.tsx`](src/components/ImagePanel.tsx).
