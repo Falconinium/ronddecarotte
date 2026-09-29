@@ -2,7 +2,7 @@
 
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
-import { hours, info } from "@/lib/content";
+import { bookingHref, external, hours, info } from "@/lib/content";
 import { ease } from "./Reveal";
 
 const ticker = hours.map((h) => `${h.day} ${h.hours}`).join("   ·   ");
@@ -22,7 +22,8 @@ export default function BottomBar() {
     >
       <div className="flex items-stretch gap-2 rounded-[18px] bg-olive p-2 text-cream shadow-xl shadow-olive/20">
         <a
-          href="#reservation"
+          href={bookingHref}
+          {...external(bookingHref)}
           className="flex shrink-0 items-center rounded-[12px] bg-clay px-5 py-3 text-sm transition-colors hover:bg-carrot"
         >
           Réserver

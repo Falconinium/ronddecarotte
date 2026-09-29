@@ -13,17 +13,9 @@ npm run dev
 
 ## Modifier le contenu
 
-Horaires, coordonnées, cartes (brunch, déjeuner & dîner, vins, coffee shop) : tout est dans [`src/lib/content.ts`](src/lib/content.ts).
-Un champ `price` optionnel peut être ajouté à chaque plat.
+Tout est dans [`src/lib/content.ts`](src/lib/content.ts) : horaires, coordonnées, et surtout :
+
+- `reservationUrl` : lien CoverManager. Tant qu'il est vide, les boutons « Réserver » appellent le restaurant.
+- `cartes` : un lien `pdf` par carte (Déjeuner & Dîner, Vins, Brunch). URL externe, ou fichier déposé dans `public/cartes/` puis référencé en `/cartes/nom.pdf`. Tant qu'il est vide, la carte affiche « Bientôt en ligne ».
 
 Photos : `public/images/`. Le choix de la photo par section est fait dans [`src/components/ImagePanel.tsx`](src/components/ImagePanel.tsx).
-
-## Réservations
-
-Le formulaire envoie la demande par e-mail via [Resend](https://resend.com). À configurer dans les variables d'environnement Vercel (voir `.env.example`) :
-
-- `RESEND_API_KEY`
-- `RESERVATION_TO_EMAIL` : adresse du restaurant qui reçoit les demandes
-- `RESERVATION_FROM_EMAIL` (optionnel) : expéditeur sur un domaine vérifié
-
-Sans configuration, le formulaire invite à réserver par téléphone.

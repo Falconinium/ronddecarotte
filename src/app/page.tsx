@@ -2,11 +2,18 @@ import BottomBar from "@/components/BottomBar";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ImagePanel, { InlinePhoto } from "@/components/ImagePanel";
-import MenuTabs from "@/components/MenuTabs";
-import ReservationForm from "@/components/ReservationForm";
 import Reveal, { SplitTitle } from "@/components/Reveal";
 import SmoothScroll from "@/components/SmoothScroll";
-import { coffeeMenu, hours, info, services } from "@/lib/content";
+import {
+  bookingHref,
+  cartes,
+  coffeeMenu,
+  external,
+  hours,
+  info,
+  reservationUrl,
+  services,
+} from "@/lib/content";
 
 const eyebrow = "text-xs tracking-[0.25em] text-clay uppercase";
 const title = "font-serif text-[clamp(3rem,6vw,5.5rem)] leading-[0.95] tracking-tight";
@@ -50,9 +57,41 @@ export default function Home() {
           <Reveal>
             <p className={eyebrow}>À table</p>
           </Reveal>
-          <SplitTitle lines={["La carte"]} className={`${title} mt-5 mb-10`} />
+          <SplitTitle lines={["Nos cartes"]} className={`${title} mt-5 mb-10`} />
           <Reveal delay={0.15}>
-            <MenuTabs />
+            <ul className="border-t border-olive/15">
+              {cartes.map((c) => (
+                <li key={c.id} className="border-b border-olive/15">
+                  {c.pdf ? (
+                    <a
+                      href={c.pdf}
+                      {...external(c.pdf)}
+                      className="group flex items-center justify-between gap-6 py-7"
+                    >
+                      <span>
+                        <span className="block font-serif text-4xl transition-colors group-hover:text-clay sm:text-5xl">
+                          {c.label}
+                        </span>
+                        <span className="mt-1 block text-sm text-bark">{c.when}</span>
+                      </span>
+                      <span className="flex size-12 shrink-0 items-center justify-center rounded-full border border-olive/20 transition-all duration-500 group-hover:rotate-45 group-hover:border-olive group-hover:bg-olive group-hover:text-cream">
+                        ↗
+                      </span>
+                    </a>
+                  ) : (
+                    <div className="flex items-center justify-between gap-6 py-7 text-olive/50">
+                      <span>
+                        <span className="block font-serif text-4xl sm:text-5xl">{c.label}</span>
+                        <span className="mt-1 block text-sm">{c.when}</span>
+                      </span>
+                      <span className="shrink-0 rounded-full border border-olive/15 px-4 py-2 text-xs">
+                        Bientôt en ligne
+                      </span>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
           </Reveal>
           <Reveal className="mt-10 text-sm text-bark/70">
             La carte change au fil des saisons et du marché. Plats végétariens et sans gluten sur demande.
@@ -117,9 +156,27 @@ export default function Home() {
           <Reveal>
             <p className={eyebrow}>Réservation</p>
           </Reveal>
-          <SplitTitle lines={["Réserver", "une table"]} className={`${title} mt-5 mb-10`} />
-          <Reveal delay={0.15}>
-            <ReservationForm />
+          <SplitTitle lines={["Réserver", "une table"]} className={`${title} mt-5`} />
+          <Reveal delay={0.15} className="mt-8 max-w-lg text-lg leading-relaxed text-bark">
+            <p>
+              Déjeuner en semaine, dîner le vendredi et le samedi soir. Réservez en quelques clics, ou
+              appelez-nous directement.
+            </p>
+          </Reveal>
+          <Reveal delay={0.25} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <a
+              href={bookingHref}
+              {...external(bookingHref)}
+              className="group inline-flex items-center gap-3 rounded-full bg-olive py-4 pr-4 pl-8 text-lg text-cream transition-colors hover:bg-clay"
+            >
+              {reservationUrl ? "Réserver en ligne" : "Réserver par téléphone"}
+              <span className="flex size-9 items-center justify-center rounded-full bg-cream/15 transition-transform duration-500 group-hover:rotate-45">
+                ↗
+              </span>
+            </a>
+            <a href={info.phoneHref} className="text-bark underline-offset-4 hover:text-clay hover:underline">
+              {info.phone}
+            </a>
           </Reveal>
 
           <div id="infos" className="mt-20 grid gap-12 sm:grid-cols-2">

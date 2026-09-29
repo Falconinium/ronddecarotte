@@ -31,101 +31,25 @@ export const services = [
   { label: "Dîner", time: "Ven. & sam. soir" },
 ];
 
-export type MenuItem = { name: string; desc?: string; price?: string };
-export type MenuSection = { title: string; items: MenuItem[] };
-export type Menu = {
-  id: string;
-  label: string;
-  when: string;
-  intro: string;
-  sections: MenuSection[];
-};
+// À compléter : lien CoverManager. Tant qu'il est vide, les boutons « Réserver » appellent le restaurant.
+export const reservationUrl = "";
 
-// Extraits de carte : la carte évolue au fil des saisons et du marché.
-export const menus: Menu[] = [
-  {
-    id: "brunch",
-    label: "Brunch",
-    when: "Tous les jours d'ouverture · 9h – 14h",
-    intro:
-      "Le brunch se prend sans se presser : produits fermiers, pain au levain et pâtisseries faites maison.",
-    sections: [
-      {
-        title: "Sucré",
-        items: [
-          { name: "Granola maison", desc: "Yaourt fermier, fruits de saison, miel du pays" },
-          { name: "Pancakes", desc: "Sirop d'érable, fruits rouges, crème fouettée" },
-          { name: "Pâtisseries du jour", desc: "Cookies, banana bread, brioche" },
-        ],
-      },
-      {
-        title: "Salé",
-        items: [
-          {
-            name: "Œuf fermier poché",
-            desc: "Châtaignes, crémeux de potimarron",
-          },
-          { name: "Toast au levain", desc: "Avocat, œuf mollet, herbes du jardin" },
-          { name: "Assiette de montagne", desc: "Tomme, jambon de pays, pickles maison" },
-        ],
-      },
-    ],
-  },
-  {
-    id: "dejeuner-diner",
-    label: "Déjeuner & Dîner",
-    when: "Midi · Dîner les vendredis et samedis",
-    intro:
-      "Une cuisine de saison, courte et précise, qui met en avant les producteurs de la vallée.",
-    sections: [
-      {
-        title: "Pour commencer",
-        items: [
-          { name: "Escargots de Magland", desc: "Beurre d'herbes, pain grillé" },
-          { name: "Carpaccio de poisson", desc: "Huile d'olive, condiment croquant" },
-        ],
-      },
-      {
-        title: "Plats",
-        items: [
-          { name: "Risotto crémeux", desc: "Girolles poêlées, persil" },
-          { name: "Poulpe grillé", desc: "Roquette, pommes grenaille, huile verte" },
-          { name: "Poisson du lac", desc: "Beurre blanc, purée de brocolis" },
-          { name: "Paleron de bœuf", desc: "Cuit longuement, jus corsé" },
-        ],
-      },
-      {
-        title: "Douceurs",
-        items: [{ name: "Dessert du moment", desc: "Selon l'humeur du chef" }],
-      },
-    ],
-  },
-  {
-    id: "vins",
-    label: "Vins",
-    when: "Au verre, à la bouteille ou à emporter",
-    intro:
-      "Plus de 500 références choisies chez des vignerons que l'on aime. Toutes les bouteilles de la cave peuvent être ouvertes à table.",
-    sections: [
-      {
-        title: "Au verre",
-        items: [
-          { name: "Blanc de Savoie", desc: "Jacquère, Altesse, Chignin-Bergeron" },
-          { name: "Rouge de Savoie", desc: "Mondeuse, Gamay, Persan" },
-          { name: "Bulles", desc: "Crémant, pétillant naturel" },
-        ],
-      },
-      {
-        title: "À la bouteille",
-        items: [
-          { name: "Savoie & Jura", desc: "Les vignerons voisins" },
-          { name: "Bourgogne & Beaujolais", desc: "Chardonnay, Pinot noir, Gamay" },
-          { name: "Loire, Rhône & ailleurs", desc: "Vins nature et en biodynamie" },
-        ],
-      },
-    ],
-  },
+export const bookingHref = reservationUrl || info.phoneHref;
+
+// Ouvre les liens externes (CoverManager, PDF) dans un nouvel onglet.
+export const external = (href: string) =>
+  href.startsWith("http") || href.endsWith(".pdf") ? { target: "_blank", rel: "noreferrer" } : {};
+
+export type Carte = { id: string; label: string; when: string; pdf: string };
+
+// À compléter : liens vers les cartes en PDF (URL ou fichier déposé dans /public/cartes/).
+export const cartes: Carte[] = [
+  { id: "dejeuner-diner", label: "Déjeuner & Dîner", when: "Midi · Vendredi & samedi soir", pdf: "" },
+  { id: "vins", label: "Vins", when: "Plus de 500 références", pdf: "" },
+  { id: "brunch", label: "Brunch", when: "9h – 14h", pdf: "" },
 ];
+
+export type MenuItem = { name: string };
 
 export const coffeeMenu: MenuItem[] = [
   { name: "Espresso, allongé, cappuccino" },
