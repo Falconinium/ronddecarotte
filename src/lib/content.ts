@@ -43,12 +43,32 @@ export const external = (href: string) =>
 
 export type Carte = { id: string; label: string; when: string; pdf: string };
 
-// À compléter : liens vers les cartes en PDF (URL ou fichier déposé dans /public/cartes/).
+// Liens vers les cartes en PDF (Google Drive).
 export const cartes: Carte[] = [
-  { id: "dejeuner-diner", label: "Déjeuner & Dîner", when: "Midi · Vendredi & samedi soir", pdf: "" },
-  { id: "vins", label: "Vins", when: "Plus de 500 références", pdf: "" },
-  { id: "brunch", label: "Brunch", when: "9h – 14h · Le dimanche, brunch uniquement", pdf: "" },
-  { id: "apres-midi", label: "Carte de l'après-midi", when: "À partir de 14h", pdf: "" },
+  {
+    id: "dejeuner-diner",
+    label: "Déjeuner & Dîner",
+    when: "Midi · Vendredi & samedi soir",
+    pdf: "https://drive.google.com/file/d/1stWzY9dPlAnaQLl0BJ-SCV-7_97d0i32/view",
+  },
+  {
+    id: "vins",
+    label: "Vins",
+    when: "Plus de 500 références",
+    pdf: "https://drive.google.com/file/d/1B5S_byVY-oBqE7b5fQ8l2lN7bAFO64vz/view",
+  },
+  {
+    id: "brunch",
+    label: "Brunch",
+    when: "9h – 14h · Le dimanche, brunch uniquement",
+    pdf: "https://drive.google.com/file/d/1SXJXxGIgANHuR5nnJOfm1QnT8Vbd9pw7/view",
+  },
+  {
+    id: "apres-midi",
+    label: "Carte de l'après-midi",
+    when: "À partir de 14h",
+    pdf: "https://drive.google.com/file/d/1mqLGu-T1_-Bcv_noQK6X7kMgIYZP0UWC/view",
+  },
 ];
 
 export type MenuItem = { name: string };

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { bookingHref, external, hours, info } from "@/lib/content";
@@ -26,7 +27,7 @@ export default function Header() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 p-3 lg:right-1/2">
-        <div className="grid h-14 grid-cols-[1fr_auto_1fr] items-center rounded-[18px] bg-cream/80 px-2 backdrop-blur-md">
+        <div className="grid h-16 grid-cols-[1fr_auto_1fr] items-center rounded-[18px] bg-cream/80 px-2 backdrop-blur-md">
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
@@ -52,9 +53,16 @@ export default function Header() {
           <a
             href="#top"
             onClick={() => setOpen(false)}
-            className="font-serif text-2xl tracking-tight whitespace-nowrap sm:text-[1.7rem]"
+            aria-label="Rond de Carotte — accueil"
           >
-            Rond de Carotte
+            <Image
+              src="/logo.png"
+              alt="Rond de Carotte — Café, Cuisine, Caviste"
+              width={1000}
+              height={353}
+              priority
+              className="h-12 w-auto sm:h-14"
+            />
           </a>
 
           <a

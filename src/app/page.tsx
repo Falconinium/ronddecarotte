@@ -1,6 +1,7 @@
 import BottomBar from "@/components/BottomBar";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Image from "next/image";
 import ImagePanel, { InlinePhoto } from "@/components/ImagePanel";
 import Reveal, { SplitTitle } from "@/components/Reveal";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -36,9 +37,8 @@ export default function Home() {
           <SplitTitle lines={["Restaurant", "& cave à vin"]} className={`${title} mt-5`} />
           <Reveal delay={0.2} className="mt-8 max-w-lg space-y-5 text-lg leading-relaxed text-bark">
             <p>
-              Poutres anciennes, tables en bois et murs couverts de bouteilles : au cœur de
-              Saint-Gervais, on s&apos;installe ici comme chez des amis, entre la cuisine ouverte et la
-              cave.
+              Au cœur de Saint-Gervais, on s&apos;installe ici comme chez des amis, entre la cuisine
+              ouverte et les étagères de la cave.
             </p>
             <p>
               On y vient pour un brunch qui s&apos;étire, un déjeuner de saison, un café l&apos;après-midi
@@ -165,10 +165,22 @@ export default function Home() {
           </Reveal>
           <SplitTitle lines={["Réserver", "une table"]} className={`${title} mt-5`} />
           <Reveal delay={0.15} className="mt-8 max-w-lg text-lg leading-relaxed text-bark">
-            <p>
-              Brunch et déjeuner le lundi, jeudi, vendredi et samedi, dîner le vendredi et le samedi
-              soir, brunch uniquement le dimanche. Le restaurant est fermé le mardi et le mercredi.
-            </p>
+            <p>Réservez votre table en ligne en quelques clics, ou appelez-nous directement.</p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <dl className="mt-8 max-w-lg divide-y divide-olive/10 border-y border-olive/10">
+              {[
+                { k: "Brunch & déjeuner", v: "Lundi, jeudi, vendredi, samedi · 9h – 14h" },
+                { k: "Brunch uniquement", v: "Dimanche · 9h – 14h" },
+                { k: "Dîner", v: "Vendredi & samedi soir" },
+                { k: "Fermé", v: "Mardi & mercredi" },
+              ].map((r) => (
+                <div key={r.k} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:justify-between sm:gap-6">
+                  <dt className="font-medium">{r.k}</dt>
+                  <dd className="text-bark">{r.v}</dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
           <Reveal delay={0.25} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
             <a
@@ -237,11 +249,14 @@ export default function Home() {
           <InlinePhoto panel="reservation" className="mt-12" />
         </section>
 
-        <footer className="flex flex-col gap-2 border-t border-olive/10 pt-8 pb-28 text-xs text-bark/70 sm:flex-row sm:justify-between">
-          <p>© {new Date().getFullYear()} Rond de Carotte · Saint-Gervais-les-Bains</p>
-          <a href="#top" className="hover:text-olive">
-            Haut de page ↑
-          </a>
+        <footer className="border-t border-olive/10 pt-10 pb-28 text-xs text-bark/70">
+          <Image src="/logo.png" alt="Rond de Carotte" width={1000} height={353} className="h-24 w-auto" />
+          <div className="mt-8 flex flex-col gap-2 sm:flex-row sm:justify-between">
+            <p>© {new Date().getFullYear()} Rond de Carotte · Saint-Gervais-les-Bains</p>
+            <a href="#top" className="hover:text-olive">
+              Haut de page ↑
+            </a>
+          </div>
         </footer>
       </main>
     </>

@@ -41,7 +41,7 @@ export default function Hero() {
         <motion.p {...fade(0.55)} className="mt-6 max-w-md text-lg leading-relaxed text-bark">
           Un lieu, mille découvertes. Dans une ambiance conviviale et chaleureuse, chaque moment de la
           journée se savoure différemment : un café le matin, une cuisine de saison à midi, un verre de
-          vin nature pour finir.
+          vin.
         </motion.p>
         <motion.div {...fade(0.7)} className="mt-8 flex flex-wrap gap-3">
           <a
