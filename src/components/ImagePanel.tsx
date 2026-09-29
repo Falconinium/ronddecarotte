@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 import { ease } from "./Reveal";
 
 export const panels = {
-  hero: { src: "/images/poulpe.jpg", caption: "Poulpe grillé, roquette" },
+  hero: { src: "/images/plats.jpg", caption: "Cuisine de saison" },
   maison: { src: "/images/salle.jpg", caption: "La salle & la cave" },
   carte: { src: "/images/risotto-girolles.jpg", caption: "Risotto crémeux aux girolles" },
   coffee: { src: "/images/brunch.jpg", caption: "Brunch & coffee shop" },
   cave: { src: "/images/cave-a-vin.jpg", caption: "Plus de 500 références" },
-  reservation: { src: "/images/poisson-du-lac.jpg", caption: "À très vite à table" },
+  reservation: { src: "/images/poulpe.jpg", caption: "À très vite à table" },
 } as const;
 
 export type PanelKey = keyof typeof panels;

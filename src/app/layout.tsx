@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Imbue, Inter } from "next/font/google";
 import { info } from "@/lib/content";
 import "./globals.css";
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
