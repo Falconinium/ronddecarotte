@@ -60,7 +60,7 @@ export const cartes: Carte[] = [
   {
     id: "dejeuner-diner",
     label: "Déjeuner & Dîner",
-    when: "Midi · Vendredi & samedi soir",
+    when: "Vendredi & samedi soir",
     pdf: "https://drive.google.com/file/d/1stWzY9dPlAnaQLl0BJ-SCV-7_97d0i32/view",
   },
   {
