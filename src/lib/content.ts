@@ -1,5 +1,8 @@
 // Toutes les informations éditables du site sont centralisées ici.
 
+// Adresse officielle du site (ronddecarotte.com redirige vers www).
+export const siteUrl = "https://www.ronddecarotte.com";
+
 export const info = {
   name: "Rond de Carotte",
   tagline: "Restaurant · Cave à vin · Coffee shop",
