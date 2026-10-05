@@ -88,10 +88,9 @@ export default function CookieConsent() {
               Un petit cookie ?
             </p>
             <p id="consent-text" className="mt-2 text-sm leading-relaxed text-bark">
-              Avec votre accord, nous mesurons la fréquentation du site de façon anonyme (Vercel
-              Analytics), pour l&apos;améliorer. Aucune publicité, aucun suivi d&apos;un site à
-              l&apos;autre. Vous pouvez changer d&apos;avis à tout moment via « Gestion des cookies » en
-              bas de page.{" "}
+              Nous utilisons des cookies et traceurs pour mesurer l&apos;audience de notre site et
+              améliorer votre expérience de navigation. Vous pouvez les accepter ou les refuser, et
+              modifier votre choix à tout moment depuis « Gestion des cookies » en bas de page.{" "}
               <Link href="/mentions-legales#cookies" className="text-olive underline underline-offset-4 hover:text-clay">
                 En savoir plus
               </Link>
