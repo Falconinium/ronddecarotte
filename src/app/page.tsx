@@ -1,4 +1,5 @@
 import BottomBar from "@/components/BottomBar";
+import { ConsentLink } from "@/components/CookieConsent";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Image from "next/image";
@@ -256,9 +257,12 @@ export default function Home() {
           <Image src="/logo.png" alt="Rond de Carotte" width={1000} height={353} className="h-24 w-auto" />
           <div className="mt-8 flex flex-col gap-2 sm:flex-row sm:justify-between">
             <p>© {new Date().getFullYear()} Rond de Carotte · Saint-Gervais-les-Bains</p>
-            <a href="#top" className="hover:text-olive">
-              Haut de page ↑
-            </a>
+            <div className="flex gap-5">
+              <ConsentLink className="hover:text-olive" />
+              <a href="#top" className="hover:text-olive">
+                Haut de page ↑
+              </a>
+            </div>
           </div>
         </footer>
       </main>
