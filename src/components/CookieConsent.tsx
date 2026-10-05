@@ -2,6 +2,7 @@
 
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { ease } from "./Reveal";
@@ -90,7 +91,10 @@ export default function CookieConsent() {
               Avec votre accord, nous mesurons la fréquentation du site de façon anonyme (Vercel
               Analytics), pour l&apos;améliorer. Aucune publicité, aucun suivi d&apos;un site à
               l&apos;autre. Vous pouvez changer d&apos;avis à tout moment via « Gestion des cookies » en
-              bas de page.
+              bas de page.{" "}
+              <Link href="/mentions-legales#cookies" className="text-olive underline underline-offset-4 hover:text-clay">
+                En savoir plus
+              </Link>
             </p>
             {/* Même style pour les deux choix : refuser doit être aussi simple qu'accepter (CNIL). */}
             <div className="mt-5 grid grid-cols-2 gap-2">

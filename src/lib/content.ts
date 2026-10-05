@@ -17,6 +17,17 @@ export const info = {
     "https://www.google.com/maps/search/?api=1&query=Rond+de+Carotte+50+rue+de+la+Vignette+Saint-Gervais-les-Bains",
 };
 
+// Informations légales (registre du commerce), utilisées par la page Mentions légales.
+export const legal = {
+  company: "SAFFRAY",
+  form: "SARL",
+  capital: "2 750 €",
+  rcs: "RCS Annecy 814 262 234",
+  siret: "814 262 234 00010",
+  vat: "FR18814262234",
+  publisher: "Arnaud Saffray",
+};
+
 export type Day = { day: string; short: string; hours: string; note?: string; closed?: boolean };
 
 export const hours: Day[] = [
