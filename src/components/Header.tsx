@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { annualClosure, bookingHref, external, hours, info } from "@/lib/content";
+import { bookingHref, external, hours, info } from "@/lib/content";
 import { ease } from "./Reveal";
 import { setScrollLocked } from "./SmoothScroll";
 
@@ -152,7 +152,6 @@ export default function Header() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-3 text-xs text-clay">{annualClosure}.</p>
                 </div>
               </motion.div>
 
