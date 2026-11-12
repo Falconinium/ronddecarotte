@@ -40,8 +40,6 @@ export const hours: Day[] = [
   { day: "Dimanche", short: "Dim.", hours: "9h – 18h", note: "Brunch uniquement" },
 ];
 
-export const annualClosure = "Fermeture annuelle du dimanche 18 octobre au mercredi 11 novembre inclus";
-
 export const services = [
   { label: "Brunch & déjeuner", time: "9h – 14h" },
   { label: "Coffee shop", time: "9h – 18h" },

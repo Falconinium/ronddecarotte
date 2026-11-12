@@ -2,10 +2,10 @@
 
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
-import { annualClosure, bookingHref, external, hours, info } from "@/lib/content";
+import { bookingHref, external, hours, info } from "@/lib/content";
 import { ease } from "./Reveal";
 
-const ticker = hours.map((h) => `${h.day} ${h.hours}${h.note ? ` (${h.note.toLowerCase()})` : ""}`).join("   ·   ") + `   ·   ${annualClosure}`;
+const ticker = hours.map((h) => `${h.day} ${h.hours}${h.note ? ` (${h.note.toLowerCase()})` : ""}`).join("   ·   ");
 
 // Barre flottante en bas de page, comme sur La Paloma : réserver + nous trouver + horaires.
 export default function BottomBar() {
